@@ -1,0 +1,1 @@
+<livewire:kanban :records="$records" />
