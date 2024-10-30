@@ -1,1 +1,1 @@
-<livewire:kanban :records="$records" />
+<livewire:kanban :records="$records" wire:key="kanban-{{ count($records) }}" />

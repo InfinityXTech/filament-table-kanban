@@ -13,9 +13,8 @@ use Illuminate\Database\Eloquent\Builder;
 class Kanban extends Component
 {
     use HasStatusChange;
-    use WithPagination;
-    protected $records;
-    protected $statuses;
+    public $records;
+    public $statuses;
 
     protected static string $recordTitleAttribute = 'name';
 
@@ -49,7 +48,8 @@ class Kanban extends Component
     public function render()
     {
         return view('livewire.kanban', [
-            'statuses' => $this->statuses
+            'statuses' => $this->statuses,
+            'records' => $this->records
         ]);
     }
 
@@ -73,5 +73,9 @@ class Kanban extends Component
     protected function getEloquentQuery(): Builder
     {
         return static::$model::query();
+    }
+
+    public function changeStatusById($id) {
+        dump($id);
     }
 }
